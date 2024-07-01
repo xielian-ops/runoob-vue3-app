@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directives</title>
+    <title>Document</title>
     <script src="https://cdn.staticfile.net/vue/3.2.36/vue.global.min.js"></script>
 </head>
 <body>
-    <!--使用v-model指令实现表单数据双向绑定-->
+    <!-- 使用v-for指令根据数组的属性值循环渲染元素或组件 -->
     <div id="app" class="demo">
-        <input type="text" v-model="message">
-        <p>{{message}}</p>
+        <ul>
+            <li v-for="item in items" :key="item.id">
+                {{item.text}}
+            </li>
+        </ul>
     </div>
     <script>
         const HelloVueApp={
             data(){
                 return{
-                    message:"hello vue!!!!"
+                    items:[
+                        {id:1,text:'Item1'},
+                        {id:2,text:'Item2'},
+                        {id:3,text:'Item3'}
+                    ]
                 }
             }
-            
         }
         Vue.createApp(HelloVueApp).mount('#app')
     </script>
-    
 </body>
 </html>

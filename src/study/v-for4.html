@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.net/vue/3.2.36/vue.global.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select @change="changeVal($event)" v-model="selOption">
+            <template v-for="(site,index) in sites" :site="site" :index="index" :key="site.id">
+                <!-- 索引为1的设为默认值，索引值从0开始 -->
+                 <option v-if="index == 1" :value="site.name" selected>{{site.name}}</option>
+                 <option v-else :value="site.name">{{site.name}}</option>
+            </template>
+        </select>
+        <div>您选中l:{{selOption}}</div>
+    </div>
+</body>
+</html>

@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directives</title>
+    <title>Document</title>
     <script src="https://cdn.staticfile.net/vue/3.2.36/vue.global.min.js"></script>
+<style>
+    .class1{
+        background: #444;
+        color: #eee
+    }
+</style>
 </head>
 <body>
-    <!--使用v-model指令实现表单数据双向绑定-->
     <div id="app" class="demo">
-        <input type="text" v-model="message">
-        <p>{{message}}</p>
+        <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
+        <br><br>
+        <div v-bind:class="{'class1':use}">
+            v-bind:class指令
+        </div>
     </div>
     <script>
-        const HelloVueApp={
+        const app={
             data(){
                 return{
-                    message:"hello vue!!!!"
+                    use:false
                 }
             }
-            
         }
-        Vue.createApp(HelloVueApp).mount('#app')
+        Vue.createApp(app).mount('#app')
     </script>
-    
 </body>
 </html>
